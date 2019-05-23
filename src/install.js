@@ -1,4 +1,4 @@
-const inq = require('inquirer')
+const inq = require('enquirer')
 const { execSync } = require('child_process')
 const path = require('path')
 
