@@ -1,3 +1,8 @@
+## 0.2.0
+ - --init-script-folder creates script folder in the current folder
+ - --create-script creates script in the current script-folder. Creates the
+   folder if it does not exist. Installs `@cthru/cmdr`
+   
 ## 0.1.5
  - fixed install script for bash execution
 

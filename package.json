@@ -1,6 +1,6 @@
 {
 	"name": "@cthru/ctxcmdr",
-	"version": "0.1.5",
+	"version": "0.2.0",
 	"description": "Path-contextual @cthru/cmdr executor. Lets you run commands upstream in your path with cwd as local folder",
 	"main": "src/index.js",
 	"scripts": {

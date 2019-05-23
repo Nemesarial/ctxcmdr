@@ -4,12 +4,28 @@ const fs = require('fs')
 const cwd = process.cwd()
 const path = require('path')
 const cmd = path.basename(process.argv[1])
-const { fork } = require('child_process')
+const { fork, execFile, execSync } = require('child_process')
 const inq = require('enquirer')
 
 const { App, Command, Param, Argument, Flag } = require('@cthru/cmdr')
 
 const callback = (options, app) => {
+    if (options['create-script']) {
+        let folder = path.resolve(cwd, cmd)
+        let command = options['create-script']
+        console.log(`Creating command ${path.resolve(folder, command)}`)
+        try {
+            try { fs.mkdirSync(folder) } catch (e) { console.log(`WARN: ${e.message}`) }
+            try { execSync('npm init -y', { cwd: folder, shell: true }) } catch (e) { console.log(`WARN: ${e}`) }
+            try { execSync('npm install --save @cthru/cmdr', { cwd: folder }) } catch (e) { console.log(`WARN: ${e.message}`) }
+            execFile(path.resolve(__dirname, '../node_modules/@cthru/cmdr/bin/scaffold.js'), ['create:single', command], { cwd: folder })
+        } catch (e) {
+            console.log('Could not create script.. : ', e.message)
+            process.exit(-1)
+        }
+        process.exit(0)
+    }
+
     // console.log({options})
     if (!options.command) {
         let [...paths] = getPath(cmd)
@@ -93,7 +109,25 @@ const app = new App(
         description: '',
         callback
     },
-    new Param({ name: 'command', defaultValue: null })
+    new Param({ name: 'command', defaultValue: null, description: 'The script to execute' }),
+    new Argument({ name: 'create-script', description: 'Create a new command in the current folder\'s command folder', defaultValue: null }),
+    new Flag(
+        {
+            name: 'init-script-folder',
+            description: 'Create the appropriate script folder',
+            intercept () {
+                try {
+                    let folder = path.resolve(cwd, cmd)
+                    fs.mkdirSync(folder)
+                    try { execSync('npm init -y', { cwd: folder, shell: true }) } catch (e) { console.log(`WARN: ${e}`) }
+                } catch (e) {
+                    console.log(e.message)
+                }
+                console.log(`\nScript folder : ./${cmd}\n`)
+                process.exit()
+            }
+        }
+    )
 )
 
 app.run()

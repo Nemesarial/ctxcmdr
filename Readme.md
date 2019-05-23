@@ -34,3 +34,10 @@ will look in `.../d/*` for scripts rather than in `.../dev/*`
 
 Don't look at the code - it is horrible. You have been warned. If do though, and you squint, you may see a quick example implementation of generators as used to find the script folders and script files.
 
+### Create a script folder
+`dev --init-script-folder` will create `./dev` and do `npm init -y`
+
+### Create a script
+`dev --create-script <scriptname>` will create a new @cthru/cmdr style script
+after doing the same as `--init-script-folder` 
+
