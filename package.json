@@ -1,19 +1,18 @@
 {
 	"name": "@cthru/ctxcmdr",
-	"version": "0.1.1",
+	"version": "0.1.1-1",
 	"description": "Path-contextual @cthru/cmdr executor. Lets you run commands upstream in your path with cwd as local folder",
 	"main": "src/index.js",
 	"scripts": {
 		"start": "",
-		"test": "node test hello world --capitalize",
 		"postinstall": "node src/install",
 		"release": "np"
 	},
+	"bin":{
+		"ctxcmdr":"./src/install.js"
+	},
 	"engines": {
 		"node": ">=8.0.0"
-	},
-	"bin": {
-		"cmdr": "src/index.js"
 	},
 	"homepage": "https://github.com/nemesarial/ctxcmdr",
 	"keywords": [
@@ -27,7 +26,5 @@
 		"@cthru/cmdr": "^1.4.6",
 		"enquirer": "^2.3.0"
 	},
-	"devDependencies": {
-		"np": "^5.0.2"
-	}
+	"devDependencies": {}
 }

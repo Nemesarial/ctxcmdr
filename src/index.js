@@ -3,7 +3,7 @@ const fs = require('fs')
 
 const cwd = process.cwd()
 const path = require('path')
-const cmd = 'dev'// path.basename(process.argv[1])
+const cmd = path.basename(process.argv[1])
 const { fork } = require('child_process')
 const inq = require('enquirer')
 
