@@ -8,8 +8,8 @@
 		"postinstall": "node src/install",
 		"release": "np"
 	},
-	"bin":{
-		"ctxcmdr":"./src/install.js"
+	"bin": {
+		"ctxcmdr": "./src/install.js"
 	},
 	"engines": {
 		"node": ">=8.0.0"
@@ -23,7 +23,7 @@
 	"author": "Mark Holtzhausen",
 	"license": "ISC",
 	"dependencies": {
-		"@cthru/cmdr": "^1.4.6",
+		"@cthru/cmdr": "^1.4.7",
 		"enquirer": "^2.3.0"
 	},
 	"devDependencies": {}
