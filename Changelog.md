@@ -1,4 +1,7 @@
-## 0.1.3
+## 0.1.5
+ - fixed install script for bash execution
+
+## 0.1.4
  - @cthru/cmdr 1.4.7 fixes passing on arguments
 
 ## 0.1.3
