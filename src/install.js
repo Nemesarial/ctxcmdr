@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const inq = require('enquirer')
 const { execSync } = require('child_process')
 const path = require('path')
