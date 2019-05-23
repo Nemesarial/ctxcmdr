@@ -26,9 +26,9 @@ const callback = (options, app) => {
                 name: 'command',
                 message: 'Which command do you want to execute',
                 suggest (input, choices) {
-                    return choices.filter(choice => { 
+                    return choices.filter(choice => {
                         // console.log({choice, input})
-                        return choice.value.split('/').pop().indexOf(input) >= 0 
+                        return choice.value.split('/').pop().indexOf(input) >= 0
                     })
                 },
                 choices: commands
@@ -36,6 +36,9 @@ const callback = (options, app) => {
         ]).then(a => {
             console.log(`executing ${a.command}`)
             fork(a.command, process.argv.slice(3), { cwd, stdio: 'inherit' })
+        }).catch(e => {
+            console.log('Cancelled.')
+            process.exit(-1)
         })
     } else {
         let [...paths] = getPath(cmd, options.command)
