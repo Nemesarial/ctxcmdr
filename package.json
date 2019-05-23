@@ -15,14 +15,11 @@
 	"bin": {
 		"cmdr": "src/index.js"
 	},
-	"homepage": "https://github.com/nemesarial/cmdr",
+	"homepage": "https://github.com/nemesarial/ctxcmdr",
 	"keywords": [
 		"cli",
-		"argv",
-		"commander",
-		"command",
-		"option",
-		"parser"
+		"script runner",
+		"utility"
 	],
 	"author": "Mark Holtzhausen",
 	"license": "ISC",
