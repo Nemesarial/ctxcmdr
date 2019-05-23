@@ -1,4 +1,7 @@
 ## 0.1.3
+ - @cthru/cmdr 1.4.7 fixes passing on arguments
+
+## 0.1.3
  - Escape when listing upstream commands, will cancel
  
 ## 0.1.2
